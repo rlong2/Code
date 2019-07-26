@@ -1,1 +1,1 @@
-This is my test repository
+This repository contains dirs Code and dotfiles.
