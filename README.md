@@ -1,1 +1,1 @@
-This repository contains dirs Code and dotfiles.
+This repository contains Code and dotfiles.
