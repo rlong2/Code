@@ -1,0 +1,10 @@
+These programs are a combination of exercieses and tweaked examples programs
+from Sams Teach Yourself C++ by Siddartha Rao, 8th Edition.
+
+I have been using Code::Blocks as an IDE to create these programs,
+so each folder contains files relating to Code:Blocks.
+
+If you want to run the C++ code without using Code::Blocks,
+simply copy the main.cpp file and compile/run it with g++.
+For example: 
+g++ main.cpp -o myProgram && ./myProgram
