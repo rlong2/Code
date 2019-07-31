@@ -4,6 +4,8 @@
 
 // todo: pass array to function
 // https://www.tutorialspoint.com/cplusplus/cpp_passing_arrays_to_functions
+// https://www.programiz.com/cpp-programming/passing-arrays-function
+
 #include <iostream>
 
 using namespace std;
