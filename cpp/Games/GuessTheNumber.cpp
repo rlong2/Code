@@ -18,7 +18,7 @@ int main()
         srand (time(NULL)); // Generate random seed
         int number = rand() % 100 + 1; // generate random number
         int guess = 0;
-        int tries = 0;
+        int tries = 1;
     
         cout << "Random number generated (1 - 100)" << endl;
     
