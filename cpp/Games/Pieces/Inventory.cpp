@@ -2,6 +2,8 @@
 // Demonstrates arrays
 // Create an array of max 10 with a sword, shield, and arrows
 
+// todo: pass array to function
+// https://www.tutorialspoint.com/cplusplus/cpp_passing_arrays_to_functions
 #include <iostream>
 
 using namespace std;
