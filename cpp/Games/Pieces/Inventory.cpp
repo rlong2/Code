@@ -10,20 +10,37 @@
 
 using namespace std;
 
+int numItems = 0;
+
+void Display(string inventory[])
+{
+    cout << "Inventory: " << endl;
+        for (int i; i < numItems; i++)
+    {
+        cout << inventory[i] << endl;
+    }
+}
+
+void Menu()
+{
+    cout << "Menu:" << endl;
+    cout << "Add weapon to inventory (a)" << endl;
+    cout << "Display inventory (d)" << endl;
+    cout << "Exit (e)" << endl;
+}
+
 int main()
 {
     const int MAX_ITEMS = 10;
     string inventory[MAX_ITEMS];
-    
-    int numItems = 0;
+
+    Menu();
+
     inventory[numItems++] = "sword";
     inventory[numItems++] = "shield";
     inventory[numItems++] = "arrows";
-    
-    for (int i; i < numItems; i++)
-    {
-        cout << inventory[i] << endl;
-    }
-	
+
+    Display(inventory);
+
 	return 0;
 }
