@@ -1,4 +1,4 @@
-// Word Scramble - Scrambles a given string
+// Word Scramble
 // https://www.geeksforgeeks.org/shuffle-vs-random_shuffle-c/
 
 #include <iostream>
@@ -16,6 +16,7 @@ string Scramble(string word, int length)
     {
         int index1 = (rand() % length);
         int index2 = (rand() % length);
+        // cout << "swapping " << index1 << " and " << index2 << endl; // uncomment line to see swaps in progress
         char temp = scrambledWord[index1];
         scrambledWord[index1] = scrambledWord[index2];
         scrambledWord[index2] = temp;
@@ -34,9 +35,9 @@ int main()
     
     Scramble(word, length);
     
-    cout << "original word: " << word << endl;
+    cout << "\n original word: " << word << endl;
     cout << "scrambled word: " << scrambledWord << endl;
     
      return 0;  
      
-} // main
+}
