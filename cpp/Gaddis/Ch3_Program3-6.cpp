@@ -6,6 +6,8 @@
 
 using namespace std;
 
+const double PI = 3.14159;
+
 int main()
 {
     double radius;
@@ -14,7 +16,7 @@ int main()
     cout << "Enter the circle's radius: ";
     cin >> radius;
 
-    area = 3.14159 * pow(radius, 2.0);
+    area = PI * pow(radius, 2.0);
 
     cout << "The area is: "<< area << endl;
 
