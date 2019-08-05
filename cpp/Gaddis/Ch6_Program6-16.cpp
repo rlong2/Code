@@ -1,4 +1,7 @@
-// This program demonstrates how global variables work
+// This program demonstrates how global variables work.
+// MyFunction changes the value of num,
+// and that change is carried through into main
+// because the num variable is global.
 
 #include <iostream>
 
@@ -20,7 +23,7 @@ int main()
 
 void MyFunction()
 {
-    cout << "In AnotherFunction, num is " << num << endl;
+    cout << "In MyFunction, num is " << num << endl;
     num = 2000;
-    cout << "But now, num is " << num << endl;
+    cout << "MyFunction has changed num to " << num << endl;
 }
