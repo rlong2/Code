@@ -18,8 +18,8 @@ int main()
                  CHILD_RATE = 60.0,
                  SENIOR_RATE = 100.0;
     
-    int choice,    // Hold user's menu choice 
-        months;    // Number of months being paid
+    int choice;    // Hold user's menu choice 
+    int months;    // Number of months being paid
         
     // Set cout formatting
     cout << fixed << showpoint << setprecision(2);
@@ -32,6 +32,12 @@ int main()
         {
             cout << "How many months do you want to pay for? ";
             cin >> months;
+            
+            while (months < 0)
+            {
+                cout << "Please enter a valid month: ";
+                cin >> months;
+            }
             
             switch (choice)
             {
