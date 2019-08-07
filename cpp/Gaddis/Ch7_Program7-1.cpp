@@ -1,4 +1,5 @@
-// This program demonstrates a simple class that calculates the area of a circle
+// This program demonstrates a simple class that calculates the area of a circle.
+// Note that the Circle class functions are inline functions.
 
 #include <iostream>
 #include<iomanip>
