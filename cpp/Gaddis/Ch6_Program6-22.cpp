@@ -1,4 +1,6 @@
 // This program demonstrates the use of default function arguments
+// Note that if a function has multiple parameters but only one default parameter,
+// that default parameter must be declared last.
 
 #include <iostream>
 using namespace std;
