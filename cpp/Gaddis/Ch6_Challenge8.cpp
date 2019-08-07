@@ -55,23 +55,26 @@ void CalcAverage(int score1, int score2, int score3, int score4, int score5)
     cout << "The average of the four highest scores is: " << average << endl;
 }
 
-// FIXME //
+
 int FindLowest(int score1, int score2, int score3, int score4, int score5) 
 {
     int lowestScore = score1;
     
     if (score2 < lowestScore)
     {
-        score2 = lowestScore;
-    } else if (score3 < lowestScore)
+        lowestScore = score2;
+    } 
+    if (score3 < lowestScore)
     {
-        score3 = lowestScore;
-    } else if (score4 < lowestScore)
+        lowestScore = score3;
+    }
+    if (score4 < lowestScore)
     {
-        score4 = lowestScore;
-    } else if (score5 < lowestScore)
+        lowestScore = score4;
+    }
+    if (score5 < lowestScore)
     {
-        score5 = lowestScore;
+        lowestScore = score5;
     }
     
     cout << "Lowest score is " << lowestScore << endl;
