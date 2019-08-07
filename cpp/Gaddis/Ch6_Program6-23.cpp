@@ -27,5 +27,5 @@ int main()
 // Note that this function is void!
 void DoubleNum(int &refVar)
 {
-    refVar = refVar * 2;  // doubles the value in main
+    refVar = refVar * 2;  // doubles the value in main WITHOUT 'returning' a value
 }
