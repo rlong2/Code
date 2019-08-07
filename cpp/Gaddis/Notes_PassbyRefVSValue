@@ -1,0 +1,19 @@
+When to pass arguments by reference and when to pass arguments by value
+From Gaddis, Ch6, p 372.
+
+1. When an argument is constant, it must be passed by value.  
+Only variables can be passed by reference.
+
+2. When a variable passed as an argument should not have its value changed,
+it should be passed by value. This protects the argument from being altered.
+
+3. When exactly 1 value needs to be returned from a function,
+use a 'return' statement rather than a reference parameter.
+
+4. When 2+ variables passed as arguments to a function need to have their
+values changed by that function, those values should be passed by reference.
+
+Common instances when reference parameters are used:
+- When data values being input in a fucntion need to be known by the calling function.
+- When a function must change existing values in the calling function.
+- When a file stream object is passed to a function.
