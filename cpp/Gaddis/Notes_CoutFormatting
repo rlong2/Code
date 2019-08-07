@@ -1,0 +1,3 @@
+#include <iomanip>
+
+cout << setprecision(2) << fixed << endl;
