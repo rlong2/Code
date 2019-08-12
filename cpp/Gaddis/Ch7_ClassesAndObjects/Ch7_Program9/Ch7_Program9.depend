@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1565566143 source:/home/ryan/Code/cpp/Gaddis/Ch7_ClassesAndObjects/Ch7_Program9/main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+
