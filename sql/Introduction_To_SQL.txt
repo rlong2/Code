@@ -1,0 +1,85 @@
+from Codeacademy.com
+
+    CREATE TABLE creates a new table.
+    INSERT INTO adds a new row to a table.
+    SELECT queries data from a table.
+    ALTER TABLE changes an existing table.
+    UPDATE edits a row in a table.
+    DELETE FROM deletes rows from a table.
+
+Constraints add information about how a column can be used.
+
+#################################
+# Create a table named 'celebs' #
+#################################
+CREATE TABLE celebs(
+    id INTEGER,
+    name TEXT,
+    age INTEGER
+);
+
+##########################
+# Insert data into table #
+##########################
+INSERT INTO celebs (id, name, age) VALUES (1, 'Justin Beiber', 22);
+INSERT INTO celebs (id, name, age) VALUES (2, 'Beyonce Knowles', 33);
+INSERT INTO celebs (id, name, age) VALUES (3, 'Keremy Lin', 26);
+INSERT INTO celebs (id, name, age) VALUES (4, 'Taylor Swift', 26);
+
+#############
+# Show data #
+#############
+# Shows entire table
+SELECT * FROM celebs;
+
+# Show names in table
+SELECT name FROM celebs;
+
+###############
+# Alter table #
+###############
+# The ALTER TABLE statement adds a new column to a table. You can use this command when you want to add columns to a table. 
+# The statement below adds a new column twitter_handle to the celebs table.
+ ALTER TABLE celebs
+ ADD COLUMN twitter_handle TEXT;
+ 
+ ###############
+ # Update data #
+ ###############
+ # The UPDATE statement edits a row in a table. You can use the UPDATE statement when you want to change existing records.
+ 
+ UPDATE celebs 
+SET twitter_handle = '@taylorswift13' 
+WHERE id = 4; 
+
+SELECT * FROM celebs;
+
+id 	name 	        age    twitter_handle
+1 	Justin Bieber 	22 	
+2 	Beyonce Knowles 33 	
+3 	Jeremy Lin 	    26 	
+4 	Taylor Swift 	26 	   @taylorswift13
+
+###############
+# Delete data #
+###############
+# The DELETE FROM statement deletes one or more rows from a table.
+# This command deletes all rows where there is no 'twotter_handle' data
+ DELETE FROM celebs
+ WHERE twitter_handle IS NULL;
+ 
+ SELECT * FROM celebs;
+ 
+ id 	name 	        age    twitter_handle	
+ 4 	    Taylor Swift 	26 	   @taylorswift13
+ 
+###############
+# CONSTRAINTS #
+###############
+# Constraints that add information about how a column can be used are invoked after specifying the data type for a column. 
+ CREATE TABLE celebs (
+     id INTEGER PRIMARY KEY,
+     name TEXT UNIQUE,
+     date_of_birth TEXT NOT NULL;
+     date_of_death TEXT DEFAULT 'Not Applicable'
+ );
