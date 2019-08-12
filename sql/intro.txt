@@ -1,0 +1,26 @@
+from Codeacademy.com
+#################################
+# Create a table named 'celebs' #
+#################################
+CREATE TABLE celebs(
+    id INTEGER,
+    name TEXT,
+    age INTEGER
+);
+
+##########################
+# Insert data into table #
+##########################
+INSERT INTO celebs (id, name, age) VALUES (1, 'Justin Beiber', 22);
+INSERT INTO celebs (id, name, age) VALUES (2, 'Beyonce Knowles', 33);
+INSERT INTO celebs (id, name, age) VALUES (3, 'Keremy Lin', 26);
+INSERT INTO celebs (id, name, age) VALUES (4, 'Taylor Swift', 26);
+
+#############
+# Show data #
+#############
+# Shows entire table
+SELECT * FROM celebs;
+
+# Show names in table
+SELECT name FROM celebs;
