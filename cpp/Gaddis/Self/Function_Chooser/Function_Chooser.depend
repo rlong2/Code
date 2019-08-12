@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1565570794 source:/home/ryan/Code/cpp/Gaddis/Self/Function_Chooser/main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+
