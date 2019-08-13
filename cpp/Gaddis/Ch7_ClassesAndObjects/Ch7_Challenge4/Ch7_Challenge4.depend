@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1565727261 source:/home/ryan/Code/cpp/Gaddis/Ch7_ClassesAndObjects/Ch7_Challenge4/main.cpp
+	<iostream>
+	<string>
+
