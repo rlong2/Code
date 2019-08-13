@@ -9,6 +9,7 @@
 */
 
 #include <iostream>
+#include<iomanip>
 using namespace std;
 
 class Date
@@ -59,8 +60,8 @@ void Date::Display()
 {
 cout << endl;
     cout << "Your formatted date:" << endl;
-    cout << month << "/" << day << "/" << year << endl;   
     
+    // Convert month int to a string, i.e. 3 becomes "March"
     string monStr;
     switch (month)
     {
@@ -102,14 +103,18 @@ cout << endl;
             break;
     }
     
+    // Display Dates
+    int shortYear = year - year / 100 * 100;  // Trunucate a year to 2 digits
+    cout << month << "/" << day << "/" << setw(2) << setfill('0') << shortYear << endl;   
     cout << monStr << " " << day << ", " << year << endl;
     cout << day << " " << monStr << " " << year << endl;
 }
 
 int main()
 {
+    
     Date obj1;
-    Date obj2(11, 20, 1981);
+    Date obj2(20, 11, 1981);
     
     obj1.Display();
     obj2.Display();
