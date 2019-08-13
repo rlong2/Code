@@ -1,5 +1,12 @@
-// This program shows how an overloaded constructor is used.
-// Help on overloaded constructors from https://www.geeksforgeeks.org/constructor-overloading-c/
+/* This program shows how an overloaded constructor is used.
+* Challenge: Design a class called Date that has integer data members to store day, month, and year.
+* The class should have a three-parameter default constructor that allows the date to be
+* set at the time a new Date object is created. If the user creates a Date object without arguments,
+* or if any of the dates are invalid, the defaultvalues of 1, 1, 2001 should be used.
+* The class should have member functions to print the date as so: 3/15/16, March 15, 2016, 15 March 2016.
+*
+* Help on overloaded constructors from https://www.geeksforgeeks.org/constructor-overloading-c/
+*/
 
 #include <iostream>
 using namespace std;
