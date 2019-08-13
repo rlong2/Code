@@ -1,9 +1,5 @@
-// This program has a class called 'Date' that stores month, day, and year.
-// The class has a three-parameter default constructor.
-// If the user creates a Date object w/o passing any arguments, 
-// use default values Jan 1, 2001.
-// The class should have member functions to print the date in these formats:
-// 3/15/16, March 15, 2016, and 15 March 2016.
+// This program shows how an overloaded constructor is used.
+// Help on overloaded constructors from https://www.geeksforgeeks.org/constructor-overloading-c/
 
 #include <iostream>
 using namespace std;
@@ -11,41 +7,55 @@ using namespace std;
 class Date
 {
     private:
-        int day,
-            month,
-            year;
+        int day; 
+        int month;
+        int year;
+        
     public:
-        Date(int d, int m, int y);   // constructor prototype with 3 parameters
-        
-        int GetDay()                 // Getters to access private variables
-        { return day; }
-        
-        int GetMonth()
-        { return month; }
-        
-        int GetYear()
-        { return year; }
-    
-    void DisplayDate(int d, int m, int y);
+       Date();                     // Constructor prototype with 0 parameters
+       Date(int d, int m, int y);  // Constructor prototype with 3 parameters
+       
+       int GetDay();
+       int GetMonth();
+       int GetYear();
+       
+       void Display();
 };
 
-// Date Implementation 
+/* Date implementation */
+
+// Getters
+int Date::GetDay()
+{ return day; }
+
+int Date::GetMonth()
+{ return month; }
+
+int Date::GetYear()
+{ return year; } 
+
+Date::Date()                   // If no parameters are supplied, default 1/1/2001
+{
+    day = 1;
+    month = 1;
+    year = 2001;
+}
+
 Date::Date(int d, int m, int y)
 {
-    day = d;
+    day = d; 
     month = m;
     year = y;
 }
 
-// Date function Implementation
-void Date::DisplayDate(int d, int m, int y)
+void Date::Display()
 {
-    cout << endl;
+cout << endl;
     cout << "Your formatted date:" << endl;
-    cout << m << "/" << d << "/" << y << endl;   
+    cout << month << "/" << day << "/" << year << endl;   
     
     string monStr;
-    switch (m)
+    switch (month)
     {
         case 1:
             monStr = "January";
@@ -85,24 +95,17 @@ void Date::DisplayDate(int d, int m, int y)
             break;
     }
     
-    cout << monStr << " " << d << ", " << y << endl;
-    cout << d << " " << monStr << " " << y << endl;
+    cout << monStr << " " << day << ", " << year << endl;
+    cout << day << " " << monStr << " " << year << endl;
 }
 
 int main()
 {
-    int day,
-        month,
-        year;
+    Date obj1;
+    Date obj2(11, 20, 1981);
     
-    cout << "Enter month: ";
-    cin >> month;
-    cout << "Enter day: ";
-    cin >> day;
-    cout << "Enter year: ";
-    cin >> year;
-    
-    Date myDate(day, month, year);     // create Date object with user-provided data
-    myDate.DisplayDate(day, month, year);
+    obj1.Display();
+    obj2.Display();
+
     return 0;
 }
