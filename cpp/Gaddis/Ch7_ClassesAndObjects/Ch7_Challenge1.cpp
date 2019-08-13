@@ -20,8 +20,8 @@ class Date
         int year;
         
     public:
-       Date();                     // Constructor prototype with 0 parameters
        Date(int d, int m, int y);  // Constructor prototype with 3 parameters
+       Date();                     // Constructor prototype with 0 parameters
        
        int GetDay();
        int GetMonth();
@@ -47,13 +47,29 @@ Date::Date()                   // If no parameters are supplied, default 1/1/200
     day = 1;
     month = 1;
     year = 2001;
+    
+    cout << "Default Date data collected." << endl;
 }
 
 Date::Date(int d, int m, int y)
 {
-    day = d; 
-    month = m;
-    year = y;
+    /* Error Checking */
+    if ((m > 12 || m < 1) || (d < 1 || d > 31) || (y < 0)
+         || (m == 2 && d > 28)
+         || (m == 4 && d > 30)      // Checking month
+         || (m == 6 && d > 30)      // and date accuracy
+         || (m == 9 && d > 30)      // (Feb, April, June,
+         || (m == 11 && d > 30))    // Sept, and Nov)
+    {
+        day = 1;
+        month = 1;
+        year = 2001;
+        
+    } else {
+        day = d; 
+        month = m;
+        year = y;
+    }
 }
 
 void Date::Display()
@@ -101,6 +117,8 @@ cout << endl;
         case 12:
             monStr = "December";
             break;
+        default: monStr = "Check month input";
+            break;
     }
     
     // Display Dates
@@ -112,12 +130,14 @@ cout << endl;
 
 int main()
 {
-    
+    // When creating object with parameters, use (day, month, year) formatting
     Date obj1;
     Date obj2(20, 11, 1981);
+    Date obj3(28, 2, 2008);
     
     obj1.Display();
     obj2.Display();
+    obj3.Display();
 
     return 0;
 }
