@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+    int choice;
     const int NUM_MONTHS = 12;
     string name[NUM_MONTHS] =
     { "January",   "February", "March",    "April",
@@ -23,6 +24,17 @@ int main()
 	cout << days[month] << " days." << endl;
     }
 
+    cout << "\nEnter the number of the month you want: ";
+    cin >> choice;
+    
+    while (choice > NUM_MONTHS || choice < ((NUM_MONTHS  + 1) - NUM_MONTHS))
+    {
+        cout << "Invalid month. Please enter 1-12: ";
+        cin >> choice;
+    }
+    
+    cout << "The month of " << name[choice - 1] << " has "
+         << days[choice - 1] << " days." << endl;
+         
     return 0;
 }
- 
