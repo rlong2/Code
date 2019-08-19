@@ -1,0 +1,37 @@
+Page 574, Gaddis
+
+at(position)          returns the value of the element located at 'position' in the vector
+x = vect.at(5)        // Assigns the value of vect[5] to x
+
+capacity()            returns the maximum number of elements that can be stored in the vector
+                      without additional memory being allocated.
+x = vect.capacity();  // Assigns the capacity of vect to x
+
+clear()               clears a vector of all its elements
+vect.clear();         // removes all elements from the vector
+
+empty()               returns true if the vector is empty. Else, returns false
+if (vect.empty());
+    cout << "Vector is empty";
+    
+pop_back()           removes the last element in the vector
+vect.pop_back();     // removes the last element of vect
+
+push_back(value)     adds 'value' to the back of the vector
+vect.push_back(5)    // adds 5 to end of vector
+
+reverse()            reverses the order of elements in the vector
+                     (last element becomes first, first becomes last)
+vect.reverse();
+
+resize(n)           resizes a vector to have n elements,
+                    where n is greater than the vector's current size.
+resize(n, value)    If 'value' is included, each of the new elements is initialized w/ that value
+// Example where vect has 4 elements:
+vect.resize(6,99)    // Adds two elements to the end of the vector, both set to 99
+
+size()              returns the number of elements in the vector
+numElements = vect.size();
+
+swap(vector2)       swaps the contents of vector1 with the contents of vector2
+vect1.swap(vect2)    // Swaps contents of vect1 and vect2
