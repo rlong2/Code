@@ -43,3 +43,4 @@ class Circle
         double FindArea()
         { return 3.14159 * pow(radius, 2); }
 };
+#endif
