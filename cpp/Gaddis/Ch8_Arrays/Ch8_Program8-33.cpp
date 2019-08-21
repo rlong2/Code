@@ -1,4 +1,6 @@
 // This program uses an array of structs
+// A default constructor ensures a struct
+// is created even if no values are passed
 
 #include <iostream>
 #include <iomanip>
@@ -8,6 +10,12 @@ struct PayInfo
 {
     int hours;
     double payRate;
+    
+    PayInfo(int h = 0, double p = 0.0)  // Constructor
+    {
+        hours = h;
+        payRate = p;
+    }
 };
 
 int main()
@@ -26,7 +34,7 @@ int main()
         cin  >> workers[i].hours;
         cout << "Hourly pay rate for this employee: $";
         cin  >> workers[i].payRate;
-    }
+    } 
     
     // Display each employee's gross pay
     cout << "\nHere is the gross pay for each employee:\n";
