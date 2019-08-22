@@ -12,7 +12,6 @@
 
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 // Function Prototypes
@@ -37,6 +36,7 @@ int main()
         jarsSold[i] = tempJars;
     }
     
+    // Find and Generate sales report
     SalesReport(salsaTypes, jarsSold, NUM_SALSAS);
 
     return 0;
@@ -46,49 +46,35 @@ int main()
 void SalesReport(string types[], int sold[], int size)
 {
     int totalSales = 0;       
-    string highestSelling = types[0];
-    string lowestSelling;
-    int tempHigh = 0;
-    int tempLow  = sold[0];
-    
-    for (int i = 0; i < size; i++)        // Get total jars sold
+    string highestSelling = types[0];      // Set default highest and lowest 
+    string lowestSelling = types[0];       // selling salsa strings to 'mild'
+    int intHigh = 0;
+    int intLow  = sold[0];                 // Set default low int to # of mild salsas sold
+   
+    // This for loop iterates through the 2 arrays and pulls data from them
+    for (int i = 0; i < size; i++)
     {
-        totalSales += sold[i];
-    }
-    
-    cout << "Total jars sold: " << totalSales << endl;
-    
-    for (int i = 0; i < size; i++)       // Get highest selling salsa
-    {
-        if (sold[i] > tempHigh)
+        totalSales += sold[i];         // Get total jars sold
+        
+        if (sold[i] > intHigh)         // Get highest selling salsa
         {
-            tempHigh = sold[i];
+            intHigh = sold[i];
             highestSelling = types[i];
         }
         
-    }
-    
-    cout << "Highest Selling: " << highestSelling << endl;
-    
-    
-    for (int i = 0; i < size; i++)       // Get lowest selling salsa
-    {
-        if (sold[i] < tempLow)
+        if (sold[i] < intLow)          // Get lowest selling salsa
         {
-            tempLow = sold[i];
+            intLow = sold[i];
             lowestSelling = types[i];
         }
-    }
+        
+    } // for
     
-    cout << "Lowest Selling:" << lowestSelling << endl;
-    /*
-    cout << "\n******************************************" << endl;  // Display Sales Report
+    // Display Sales Report
+    cout << "\n******************************************" << endl;  
     cout <<   "* Puckerbutt Pepper Company Sales Report *" << endl;
     cout <<   "******************************************" << endl;
-    cout << "Highest selling salsa: " << highestSelling << " with " 
-                                      << tempHigh << " jars." << endl;
-                                      
-    cout << "Lowest selling salsa: "  << lowestSelling << " with "
-                                      << tempHigh << " jars." << endl;
- */
+    cout << "Total jars sold: " << totalSales << endl;
+    cout << "Highest Selling: " << highestSelling << endl;
+    cout << "Lowest Selling:  "  << lowestSelling << endl;
 }
