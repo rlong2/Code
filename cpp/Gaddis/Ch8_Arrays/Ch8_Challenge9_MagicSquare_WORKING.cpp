@@ -6,6 +6,8 @@
 * returning true if it is a magic square.
 *
 * Multidimensional arrays: https://www.learncpp.com/cpp-tutorial/65-multidimensional-arrays/
+* On passing 2d arrays to a function: http://www.cplusplus.com/forum/beginner/73432/
+* ^Example from Volatile Pulse
 */
 
 #include <iostream>
