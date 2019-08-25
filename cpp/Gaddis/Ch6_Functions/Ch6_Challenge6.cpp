@@ -16,7 +16,6 @@ double CalculateCharge(double weight, double distance);
 
 int main()
 {
-    
     double userWeight = 1;
     double userDistance;
 
@@ -37,9 +36,7 @@ int main()
 
         // If user wishes to exit program
         if (userWeight == 0)
-        {   
             break;
-        }
 
         cout << "Enter the distance to be shipped: ";
     	cin  >> userDistance;
@@ -47,13 +44,9 @@ int main()
         double rate = CalculateCharge(userWeight, userDistance);
 	cout << "The shipping rate is $" << rate << endl;
     }
-
-    
-    
+	
     cout << "\nThank you for using our shipping calculator. Goodbye!" << endl;
-
     return 0;
-
 }
 
 // Function Implementation
@@ -79,7 +72,5 @@ double CalculateCharge(double weight, double distance)
         }
 
     rate = rate * shippingIncrement;
-
     return rate;
-
 }
