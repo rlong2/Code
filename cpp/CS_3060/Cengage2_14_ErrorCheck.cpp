@@ -46,14 +46,14 @@ int main()
 
         userChoice = getChoice();
         
-        while (userChoice != 'n')
+        while (userChoice != 'n' && userChoice != 'y')
         {
-            cout << "Error. Please enter valid input." << endl;
+            cout << "Please enter y or n.";
             userChoice = getChoice();
         }
     }
     
-    cout << "Thank you for using the program!" << endl;
+    cout << "\nThank you for using the program!" << endl;
     
     return 0;
 }
@@ -99,6 +99,9 @@ char getChoice()
     cout << "\nDo you want to find the actual space of another hard drive? (y/n): ";
     cin  >> setw(1) >> choice;
 
+    if (choice == 'y' || choice == 'n')
+        return choice;
+        
     // Error Checking
     while(cin.good() == false)                                                   
     {
