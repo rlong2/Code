@@ -21,17 +21,17 @@ using namespace std;
 int main()
 {
 
-    const double FIVE_OFF   = 0.05;
+        const double FIVE_OFF   = 0.05;
 	const double TEN_OFF    = 0.10;
 	const double TWENTY_OFF = 0.20;
 	const double THIRTY_OFF = 0.30;
 
-    double oneRoomCost,      // Cost of one room
-	       salesTax,         // Sales Tax
+    double oneRoomCost,          
+	   salesTax,             
            discount,
            totalCost;
 
-    int roomsBooked;  // Number of rooms booked
+    int roomsBooked;     // The number of rooms booked
     int daysRoomsBooked; // the number of days the rooms are booked for
 
     cout << "Enter the cost of renting one room: $";
@@ -61,8 +61,8 @@ int main()
         discount = discount + FIVE_OFF;    
     
     // Calculate total cost of rooms
-    oneRoomCost = oneRoomCost - (oneRoomCost * discount);
-    totalCost = oneRoomCost * roomsBooked;
+    double discountedRoom = oneRoomCost - (oneRoomCost * discount);
+    totalCost = discountedRoom * roomsBooked * daysRoomsBooked;
     double totalCostWithTax = totalCost + (totalCost * salesTax);
 
     // Output data
@@ -70,8 +70,9 @@ int main()
     cout << "The cost of renting one room is $" << oneRoomCost << endl;
     cout << "Your room's prices are discounted by " << discount * 100 << "%" << endl;
     cout << "The number of rooms booked is " << roomsBooked << endl;
-    cout << "The total cost of the rooms is $" << totalCost << endl;
-    cout << "The sales tax is " << salesTax * 100 << "%" << endl;
+    cout << "The rooms are booked for " << daysRoomsBooked << "days" << endl;
+    cout << "The total cost of the rooms is $" << totalCost  << endl;
+    cout << "The sales tax is $" << totalCost * salesTax << endl;
     cout << "The total billing amount is $" << totalCostWithTax << endl;
 
     return 0;
