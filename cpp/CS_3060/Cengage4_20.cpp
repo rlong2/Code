@@ -47,7 +47,7 @@ int main()
 
     // Find applicable discounts
     if (roomsBooked < 10)
-        cout << "less than 10 rooms booked, no discount" << endl;
+        discount = 0.0;
     else if (roomsBooked >= 10 && roomsBooked < 20)
         discount = TEN_OFF;
     else if (roomsBooked >= 20 && roomsBooked < 30)
