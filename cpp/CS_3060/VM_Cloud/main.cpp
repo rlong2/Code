@@ -35,13 +35,15 @@ int main()
 
     cout << "This program calculates VM stuff." << endl;
 
-    cout << "\nEnter the time zone you're in at 8 PM:" << endl;
+    cout << "\nEnter the time zone you're in:" << endl;
     cout << "1) Pacific" << endl;
     cout << "2) Mountain" << endl;
     cout << "3) Central" << endl;
     cout << "4) Eastern" << endl;
     cout << "Enter 1, 2, 3, or 4: " << endl;
     cin  >> tz;
+    
+    cout << "The current time is 8 PM" << endl;
     
     cout << "\nEnter the cost of VM per hour. Ex, .10): ";
     cin  >> costPerHour;
