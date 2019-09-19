@@ -66,8 +66,8 @@ void currentUsage(int tz, double costPerHour)
     // Get one time zone cost
     users =  500000;            // 8PM
     
-    int backwards = --tz;
-    int forwards  = 2 + tz;
+    int backwards = --tz;                      // Check if time zones exist before or after your time zone.
+    int forwards  = 2 + tz;                    //  ie if Mountin tz, you need to account for Pacific, Mountain, and Central
     
     cout << "tz is " << tz << endl;
     cout << "backwards is " << backwards << endl;
