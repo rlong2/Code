@@ -20,13 +20,11 @@
 
 #include <iostream>
 #include <iomanip>
-#include <math.h>     // for rounding up number of users
-
-#define GET_COST(map, hr) (map[hr - 6])
-
+#include <math.h>     // for rounding up number of users from a decimal
 using namespace std;
 
-enum TimeZone{
+enum TimeZone
+{
     NO_TZ,
     PACIFIC,
     MOUNTAIN,
@@ -36,31 +34,33 @@ enum TimeZone{
 };
 
 enum Direction { BOTH, LEFT, RIGHT };
-float mapPercentage[]{ .5, .75, 1, .75, .5 };
+
+float mapPercentage[]{ .5, .75, 1, .75, .5 };        // used to reduce number of users in adjacent time zones
 
 int TotalUsers(int initialUsers, Direction direction, int currTime, TimeZone currentZone){
     
     if(currentZone >= MAX_TZ || currentZone <= NO_TZ) // base case
         return 0;
         
-    int totalUsers = GET_COST(mapPercentage, currTime) * initialUsers;
+    int ret = mapPercentage[currTime - 6] * initialUsers;
     
-    switch(direction){
+    switch(direction)
+    {
         case Direction::BOTH:
-            totalUsers += TotalUsers(initialUsers, Direction::LEFT,  currTime - 1, (TimeZone)(currentZone - 1));
-            totalUsers += TotalUsers(initialUsers, Direction::RIGHT, currTime + 1, (TimeZone)(currentZone + 1));
-            return totalUsers;
+            ret += TotalUsers(initialUsers, Direction::LEFT, currTime - 1, (TimeZone)(currentZone - 1));
+            ret += TotalUsers(initialUsers, Direction::RIGHT, currTime + 1, (TimeZone)(currentZone + 1));
+            return ret;
         case Direction::LEFT:
-            totalUsers += TotalUsers(initialUsers, Direction::LEFT, currTime - 1,  (TimeZone)(currentZone - 1));
-            return totalUsers;
+            ret += TotalUsers(initialUsers, Direction::LEFT, currTime - 1, (TimeZone)(currentZone - 1));
+            return ret;
         case Direction::RIGHT:
-            totalUsers += TotalUsers(initialUsers, Direction::RIGHT, currTime + 1, (TimeZone)(currentZone + 1));
-            return totalUsers;
+            ret += TotalUsers(initialUsers, Direction::RIGHT, currTime + 1, (TimeZone)(currentZone + 1));
+            return ret;
         default:
             break;
     }
     
-    return totalUsers;
+    return ret;
 }
 
 int main()
