@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1570656347 source:/home/ryan/Code/cpp/CS_3060/Exercise_8/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
