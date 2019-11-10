@@ -1,12 +1,11 @@
 /*
  Ryan Long
+ CS 3060
+ November 10, 2019
 
- Create a program with 3 base classes to create a vehicle
- A user should be able to select from a list of vehicles
- to show its attributes.
+ This program uses 3 base classes to create a vehicle.
+ A user can create vehicles and print their attributes.
 
- https://www.geeksforgeeks.org/multiple-inheritance-in-c/
- http://www.trytoprogram.com/cplusplus-programming/multiple-inheritance/
 */
 
 #include <iostream>
@@ -21,7 +20,7 @@ class Motor
         int motor;
         Motor()
         {
-            cout << "Creating a vehcicle..." << endl;
+            cout << "\nCreating a vehicle..." << endl;
             cout << "Enter number of cylinders (1-4): ";
             cin  >> motor;
         }
@@ -37,7 +36,7 @@ class Transmission
 
         Transmission()
         {
-            cout << "Manual or automatic (M/A)? ";
+            cout << "\nManual or automatic (M/A)? ";
             cin  >> transmission;
 
             if (choice == 'a' || choice == 'A')
@@ -62,7 +61,7 @@ class Chassis
     string chassis;
         Chassis()
         {
-            cout << "Vehicle types:" << endl;
+            cout << "\nVehicle type:" << endl;
             cout << "1. Sedan" << endl;
             cout << "2. Limo" << endl;
             cout << "3. Smart Car" << endl;
@@ -87,10 +86,11 @@ class Chassis
                     break;
                 case 5:
                     cout << "Enter your vehicle's body type: ";
-                    cin  >> chassis;
+                    //cin  >> chassis;
+                    getline (cin >> ws, chassis);
                     break;
                 default:
-                    cout << "You've entered invalid input. Assinging chassis..." << endl;
+                    cout << "You've entered invalid input. Assinging default chassis..." << endl;
                     chassis = "Weinermobile";
             }
         }
@@ -102,9 +102,14 @@ class Vehicle : public Motor, public Transmission, public Chassis
     public:
         void PrintVehicle()
         {
+            cout << "\nChassis:           " << chassis << endl;
             cout << "Motor:             " << motor << "-cylinder"<< endl;
             cout << "Transmission type: " << numGears << " gear " << transmission << endl;
-            cout << "Chassis:           " << chassis << endl;
+        }
+
+        void PrintShortList()
+        {
+            cout << chassis << endl;
         }
 };
 
@@ -114,6 +119,7 @@ int main()
        vector<Vehicle> garage;
 
        int menuChoice;
+       int details;
 
        cout << "Welcome to the car creator program! Build the cars of your dreams!" << endl;
 
@@ -124,25 +130,47 @@ int main()
           cout << "3. Exit Program" << endl;
           cin  >> menuChoice;
 
-          if (menuChoice == 1)
-          {
+          if (menuChoice == 1)                          // Create Vehicle,
+          {                                             // store it in the garage
              Vehicle car1;
              garage.push_back(car1);
-
           }
-          else if (menuChoice == 2)
+          else if (menuChoice == 2)                     // Print vehicles in garage
           {
-             cout << "Garage:" << endl;
+             cout << "\nYour garage contains:" << endl;
 
-             for (int counter = 0; counter < garage.size(); counter++)
-                garage[counter].PrintVehicle();
+             for (int i = 0; i < garage.size(); i++)
+             {
+                 cout << i + 1 << ". ";
+                 garage[i].PrintShortList();
+             }
+
+             cout << "Do you want to see more details?" << endl;
+             cout << "Enter a car number, or 0 to view entire collection: ";
+             cin  >> details;
+
+             if (details == 0)
+             {
+                 for (int i = 0; i < garage.size(); i++)
+                    garage[i].PrintVehicle();
+             }
+             else
+                 garage[--details].PrintVehicle();
           }
-          else
+          else                                           // Exit program
           {
-              cout << "Exiting..." << endl;
+              cout << "\nExiting..." << endl;
           }
 
        } while (menuChoice != 3);
+
+       cout << "            ____       " << endl;
+       cout << "         __/  |_\\_     " << endl;
+       cout << "- - - - |  _     _``-. " << endl;
+       cout << "        '-(_)---(_)--' " << endl;
+
+       // ASCII art courtesy of Max Strandberg
+       // https://www.asciiart.eu/vehicles/cars
 
         return 0;
    }
