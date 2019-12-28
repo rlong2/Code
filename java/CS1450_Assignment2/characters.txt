@@ -1,0 +1,9 @@
+8
+h Larry
+h Kirby
+r Wall-E
+v MetaKnight
+m Godzilla
+r Rob
+m King K. Rool
+v Gannon
