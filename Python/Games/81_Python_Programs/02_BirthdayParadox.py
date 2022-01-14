@@ -30,7 +30,6 @@ The Birthday Paradox shows us that in a group of N people, the odds
 that two of them have matching birthdays is surprisingly large.
 This program foes a Monte Carlo simulation (repeated random simulations)
 to explore this concept.
-
 ''')
 
 # Create a tuple of months
