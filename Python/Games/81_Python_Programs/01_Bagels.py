@@ -21,7 +21,7 @@ clues would be Fermi Pico'''.format(NUM_DIGITS))
         secretNum = getSecretNum()
         print("I have thought of a random number.")
         print("You have {} guesses to get it.".format(MAX_GUESSES))
-        print("secretNum is ", secretNum) # REMOVE
+#        print("secretNum is ", secretNum) # REMOVE
 
         numGuesses = 1
 
