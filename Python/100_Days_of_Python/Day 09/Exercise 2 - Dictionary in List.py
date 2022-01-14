@@ -6,6 +6,7 @@ Write a function that will work with the following line of code on line 21
 to add the entry for Russia to the travel_log.
 '''
 
+# A list of dictionaries
 travel_log = [
 {
   "country": "France",
@@ -20,11 +21,15 @@ travel_log = [
 ]
 #🚨 Do NOT change the code above
 
-#TODO: Write the function that will allow new countries
-#to be added to the travel_log. 👇
-def add_new_country(country, visits, cities):
-    #travel_log.append(country, visits, cities)
-    #travel_log.append(country)
+# Write the function that will allow new countries
+# to be added to the travel_log. 👇
+def add_new_country(country_visited, times_visited, cities_visted):
+    # Create a new dictionary to add data to
+    new_country = {}
+    new_country["country"] = country_visited
+    new_country["visits"] = times_visited
+    new_country["cities"] = cities_visted
+    travel_log.append(new_country)
 
 #🚨 Do not change the code below
 add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
