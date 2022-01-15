@@ -1,20 +1,20 @@
 '''
 Program to click the mouse at a specific time
+
 https://pypi.org/project/schedule/
 https://pypi.org/project/mouse/
 https://stackoverflow.com/questions/11523918/python-start-a-function-at-given-time
 '''
 
-import schedule
-import time
-import mouse
+import schedule, time, mouse
 
-def job():
-    print("Wello world!")
+def MouseClick():
+    print("Click!")
+    mouse.click('left')
 
 # Main
-#schedule.every(10).seconds.do(job)
-schedule.every().day.at("13:35").do(job)
+#schedule.every(10).seconds.do(MouseClick)
+schedule.every().day.at("13:44").do(MouseClick)
 
 while True:
     schedule.run_pending()
