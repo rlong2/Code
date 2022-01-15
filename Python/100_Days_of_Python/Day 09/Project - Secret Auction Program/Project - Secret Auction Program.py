@@ -2,7 +2,7 @@
 import art
 
 # Print ascii art and intoduction
-print(art.logo)
+#print(art.logo)
 print("Welcome to the secret auction program.")
 
 # Function to add name of bidder and bid amount to a list
@@ -11,6 +11,15 @@ def addBidToList(name, bid):
     new_bid["name"] = name
     new_bid["bid"] = bid
     bid_list.append(new_bid)
+
+# Function to find the highest bid from the list
+def getHighestBid(bid_list):
+    highest_bid = 0
+    for dictionary in bid_list:
+        for entry in dictionary:
+            if dictionary[entry] > highest_bid:
+                highest_bid = dictionary[entry]
+    print(f"Highest bid is {highest_bid}")
     
 # Get player names and bids
 # If there are multiple bidders, clear the screen
@@ -28,7 +37,7 @@ while True:
         pass
     else:
         # Get highest bid and name of bidder
+        getHighestBid(bid_list)
         break
 
-print(bid_list)
 #print(f"The winnder is {name} with a bid of ${bid}.")
