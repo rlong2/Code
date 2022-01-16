@@ -1,0 +1,364 @@
+Ryan Long
+CS 4100 - Compilers Pt 4 Output
+Albert Brouillette
+Fall 2020
+
+********************************************************************************
+* Table of contents (using Notepad++ or other program to view line numbers)    *
+* 1) Source line exact echo no tracing of tokens: line 16                      *
+* 2) Symbol table dump before execution:          line 79                      *
+* 3) Quad table dump:                             line 122                     *
+* 4) Quad execution output:                       line 173                     *
+* 5) Symbol table dump after execution:           line 324                     *
+********************************************************************************
+
+**********************************************************************************************
+* 1) Source line exact echo no tracing of tokens (Echos exactly as the source file contents) *
+**********************************************************************************************
+Running Code Generation on CS4100FinalProjGOODMinimumFA20.txt
+----------------------------------------------------------------------
+Lexeme                         Token Code   Mnemonic     ST Index 
+----------------------------------------------------------------------
+Line 1: unit LastTest;
+Line 2: {Final compiler project test program
+Line 3:    NO ERRORS INTENDED!  Notify A. Brouillette if errors are found. }
+Line 4: 
+Line 5: VAR I,J: integer;
+Line 6: var product, sum: integer;
+Line 7: 
+Line 8: begin
+Line 9: for i := 1 to 5 do
+Line 10: { Find summation 5 times }
+Line 11:   begin
+Line 12:   writeln("SUMMATIONS 1 THROUGH 5");
+Line 13:   sum := 0;
+Line 14:   for j := 1 to i do
+Line 15:     begin
+Line 16:     sum := sum + j
+Line 17:     end;
+Line 18:   writeln(sum)
+Line 19:   end;
+Line 20: 
+Line 21: { Find 6 factorial }
+Line 22:   product := 1;
+Line 23:   i := 2;
+Line 24:   while i <= 6 do
+Line 25:     begin
+Line 26:     product := product * i;
+Line 27:     writeln("Product now is:");
+Line 28:     writeln(product);
+Line 29:     i := i + 1
+Line 30:     end;
+Line 31:   writeln("6! is:");
+Line 32:   writeln(product);
+Line 33: 
+Line 34: {count powers of 2 needed to get over 1000  }
+Line 35: j := 0;
+Line 36: product := 1;
+Line 37: while product <= 1000 do
+Line 38:   begin
+Line 39:   product := product * 2;
+Line 40:   j := j + 1;
+Line 41:   writeln(j);
+Line 42:   if product < 500 then
+Line 43:     writeln("Product is less than 500")
+Line 44:   else
+Line 45:     writeln("Product is greater than or equal to 500")  
+Line 46:   end;
+Line 47: writeln("Iterations = ");
+Line 48: writeln(j);
+Line 49: writeln("Value of product:");
+Line 50: writeln(product);
+Line 51: 
+Line 52: writeln("Made it to the end.")
+Line 53: 
+Line 54: end.
+~~ Congratulations, CS4100FinalProjGOODMinimumFA20.txt compiled without errors! ~~
+
+*******************************************************
+* 2) Symbol table dump before execution (neat format) *
+*******************************************************
+Printing Symbol Table before quads are executed:
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|                                 Symbol Table                                       |
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lexeme                         Kind         Type        Value                        | 
+-------------------------------------------------------------------------------------
+MINUS_1_INDEX                 Const        INT          -1                           |
+PLUS_1_INDEX                  Const        INT          1                            |
+LastTest                        Var        STRING       0                            |
+I                               Var        STRING       0                            |
+J                               Var        STRING       0                            |
+product                         Var        STRING       0                            |
+sum                             Var        STRING       0                            |
+1                             Const        INT          1                            |
+5                             Const        INT          5                            |
+#TEMP_1                         Var        INT          0                            |
+SUMMATIONS 1 THROUGH 5        Const        STRING       SUMMATIONS 1 THROUGH 5       |
+0                             Const        INT          0                            |
+#TEMP_2                         Var        INT          0                            |
+#TEMP_3                         Var        INT          0                            |
+2                             Const        INT          2                            |
+6                             Const        INT          6                            |
+#TEMP_4                         Var        INT          0                            |
+#TEMP_5                         Var        INT          0                            |
+Product now is:               Const        STRING       Product now is:              |
+#TEMP_6                         Var        INT          0                            |
+6! is:                        Const        STRING       6! is:                       |
+1000                          Const        INT          1000                         |
+#TEMP_7                         Var        INT          0                            |
+#TEMP_8                         Var        INT          0                            |
+#TEMP_9                         Var        INT          0                            |
+500                           Const        INT          500                          |
+#TEMP_10                        Var        INT          0                            |
+Product is less than 500      Const        STRING       Product is less than 500     |
+Product is greater than or equal to 500Const        STRING       Product is greater than or equal to 500|
+Iterations =                  Const        STRING       Iterations =                 |
+Value of product:             Const        STRING       Value of product:            |
+Made it to the end.           Const        STRING       Made it to the end.          |
+-------------------------------------------------------------------------------------
+
+***************************************************************************
+* 3) Quad table dump (w/ opcode mnemonics, operand, s.t. names & <index>) *
+***************************************************************************
+================== Quad Table contents ==================
+MOV		7	0	3	
+PRINT	10	0	0	
+MOV		6	0	11	
+MOV		7	0	4	
+ADD		6	4	13	
+MOV		6	0	13	
+SUB		4	3	12	
+ADD		4	1	4	
+BNP		12	0	4	
+PRINT	6	0	0	
+SUB		3	8	9	
+ADD		3	1	3	
+BNP		9	0	1	
+MOV		5	0	7	
+MOV		3	0	14	
+SUB		3	15	16	
+BP		16	0	15	
+MUL		5	3	17	
+MOV		5	0	17	
+PRINT	18	0	0	
+PRINT	5	0	0	
+ADD		3	7	19	
+MOV		3	0	19	
+BR		0	0	15	
+PRINT	20	0	0	
+PRINT	5	0	0	
+MOV		4	0	11	
+MOV		5	0	7	
+SUB		5	21	22	
+BP		22	0	28	
+MUL		5	14	23	
+MOV		5	0	23	
+ADD		4	7	24	
+MOV		4	0	24	
+PRINT	4	0	0	
+SUB		5	25	26	
+BNN		26	0	38	
+PRINT	27	0	0	
+BR		0	0	40	
+PRINT	28	0	0	
+BR		0	0	28	
+PRINT	29	0	0	
+PRINT	4	0	0	
+PRINT	30	0	0	
+PRINT	5	0	0	
+PRINT	31	0	0
+
+*********************************************************
+* 4) Quad execution output (trace/notrace, prog output) * 
+*********************************************************
+Running Program with trace enabled...
+
+PC = 000: MOV	7	0	3	----> Move symbol '1' value into I
+PC = 001: PRINT	10	0	0	----> Printing: SUMMATIONS 1 THROUGH 5
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 0
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 0 - 0
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 0 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 0 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 1
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 1 - 0
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 1 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 1
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 0 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 0 + 1
+PC = 012: BNP	9	0	1	----> BNP check: -5 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 2
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 2 - 1
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 2 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 2
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 1 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 1 + 1
+PC = 012: BNP	9	0	1	----> BNP check: -4 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 3
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 3 - 2
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 3 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 3
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 2 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 2 + 1
+PC = 012: BNP	9	0	1	----> BNP check: -3 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 4
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 4 - 3
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 4 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 4
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 3 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 3 + 1
+PC = 012: BNP	9	0	1	----> BNP check: -2 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 5
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 5 - 4
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 5 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 5
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 4 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 4 + 1
+PC = 012: BNP	9	0	1	----> BNP check: -1 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 6
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 6 - 5
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 6 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 6
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 5 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 5 + 1
+PC = 012: BNP	9	0	1	----> BNP check: 0 <= 0, branch
+PC = 002: MOV	6	0	11	----> Move symbol 'sum' value into 0
+PC = 003: MOV	7	0	4	----> Move symbol '1' value into J
+PC = 004: ADD	6	4	13	----> set symbol '#TEMP_3' value to 0 + 7
+PC = 005: MOV	6	0	13	----> Move symbol 'sum' value into #TEMP_3
+PC = 006: SUB	4	3	12	----> set symbol '#TEMP_2' value to 7 - 6
+PC = 007: ADD	4	1	4	----> set symbol 'J' value to 7 + 1
+PC = 008: BNP	12	0	4	----> BNP check: 1 > 0, no branch
+PC = 009: PRINT	6	0	0	----> Printing: 7
+PC = 010: SUB	3	8	9	----> set symbol '#TEMP_1' value to 6 - 5
+PC = 011: ADD	3	1	3	----> set symbol 'I' value to 6 + 1
+PC = 012: BNP	9	0	1	----> BNP check: 1 > 0, no branch
+PC = 013: MOV	5	0	7	----> Move symbol 'product' value into 1
+PC = 014: MOV	3	0	14	----> Move symbol 'I' value into 2
+PC = 015: SUB	3	15	16	----> set symbol '#TEMP_4' value to 2 - 6
+PC = 016: BP	16	0	15	----> BP check: -4 not > 0, no branch
+PC = 017: MUL	5	3	17	----> set symbol '#TEMP_5' value to 7 * 2
+PC = 018: MOV	5	0	17	----> Move symbol 'product' value into #TEMP_5
+PC = 019: PRINT	18	0	0	----> Printing: Product now is:
+PC = 020: PRINT	5	0	0	----> Printing: 14
+PC = 021: ADD	3	7	19	----> set symbol '#TEMP_6' value to 2 + 7
+PC = 022: MOV	3	0	19	----> Move symbol 'I' value into #TEMP_6
+PC = 023: BR	0	0	15	-----> BR: Unconditional branch, setting pc to 15
+PC = 024: PRINT	20	0	0	----> Printing: 6! is:
+PC = 025: PRINT	5	0	0	----> Printing: 14
+PC = 026: MOV	4	0	11	----> Move symbol 'J' value into 0
+PC = 027: MOV	5	0	7	----> Move symbol 'product' value into 1
+PC = 028: SUB	5	21	22	----> set symbol '#TEMP_7' value to 7 - 1000
+PC = 029: BP	22	0	28	----> BP check: -993 not > 0, no branch
+PC = 030: MUL	5	14	23	----> set symbol '#TEMP_8' value to 7 * 2
+PC = 031: MOV	5	0	23	----> Move symbol 'product' value into #TEMP_8
+PC = 032: ADD	4	7	24	----> set symbol '#TEMP_9' value to 0 + 7
+PC = 033: MOV	4	0	24	----> Move symbol 'J' value into #TEMP_9
+PC = 034: PRINT	4	0	0	----> Printing: 7
+PC = 035: SUB	5	25	26	----> set symbol '#TEMP_10' value to 14 - 500
+PC = 036: BNN	26	0	38	----> BNN check: -486 < 0, no branch
+PC = 037: PRINT	27	0	0	----> Printing: Product is less than 500
+PC = 038: BR	0	0	40	-----> BR: Unconditional branch, setting pc to 40
+PC = 039: PRINT	28	0	0	----> Printing: Product is greater than or equal to 500
+PC = 040: BR	0	0	28	-----> BR: Unconditional branch, setting pc to 28
+PC = 041: PRINT	29	0	0	----> Printing: Iterations = 
+PC = 042: PRINT	4	0	0	----> Printing: 7
+PC = 043: PRINT	30	0	0	----> Printing: Value of product:
+PC = 044: PRINT	5	0	0	----> Printing: 14
+PC = 045: PRINT	31	0	0	----> Printing: Made it to the end.
+
+No more quads to interpret, Program Terminated
+
+Running Program with trace disabled...
+	----> Printing: SUMMATIONS 1 THROUGH 5
+	----> Printing: 1
+	----> Printing: 2
+	----> Printing: 3
+	----> Printing: 4
+	----> Printing: 5
+	----> Printing: 6
+	----> Printing: 7
+	----> Printing: Product now is:
+	----> Printing: 14
+	----> Printing: 6! is:
+	----> Printing: 14
+	----> Printing: 7
+	----> Printing: Product is less than 500
+	----> Printing: Product is greater than or equal to 500
+	----> Printing: Iterations = 
+	----> Printing: 7
+	----> Printing: Value of product:
+	----> Printing: 14
+	----> Printing: Made it to the end.
+
+No more quads to interpret, Program Terminated
+
+*****************************************************
+* 5) Symbol table dump after execution              * 
+*****************************************************
+Printing Symbol Table after quads are executed:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|                                 Symbol Table                                       |
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lexeme                         Kind         Type        Value                        | 
+-------------------------------------------------------------------------------------
+MINUS_1_INDEX                 Const        INT          -1                           |
+PLUS_1_INDEX                  Const        INT          1                            |
+LastTest                        Var        STRING       0                            |
+I                               Var        STRING       9                            |
+J                               Var        STRING       7                            |
+product                         Var        STRING      14                            |
+sum                             Var        STRING       7                            |
+1                             Const        INT          7                            |
+5                             Const        INT          5                            |
+#TEMP_1                         Var        INT          1                            |
+SUMMATIONS 1 THROUGH 5        Const        STRING       SUMMATIONS 1 THROUGH 5       |
+0                             Const        INT          0                            |
+#TEMP_2                         Var        INT          1                            |
+#TEMP_3                         Var        INT          7                            |
+2                             Const        INT          2                            |
+6                             Const        INT          6                            |
+#TEMP_4                         Var        INT          -4                           |
+#TEMP_5                         Var        INT          14                           |
+Product now is:               Const        STRING       Product now is:              |
+#TEMP_6                         Var        INT          9                            |
+6! is:                        Const        STRING       6! is:                       |
+1000                          Const        INT          1000                         |
+#TEMP_7                         Var        INT          -993                         |
+#TEMP_8                         Var        INT          14                           |
+#TEMP_9                         Var        INT          7                            |
+500                           Const        INT          500                          |
+#TEMP_10                        Var        INT          -486                         |
+Product is less than 500      Const        STRING       Product is less than 500     |
+Product is greater than or equal to 500Const        STRING       Product is greater than or equal to 500|
+Iterations =                  Const        STRING       Iterations =                 |
+Value of product:             Const        STRING       Value of product:            |
+Made it to the end.           Const        STRING       Made it to the end.          |
+-------------------------------------------------------------------------------------
