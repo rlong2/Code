@@ -1,0 +1,89 @@
+public class Symbol {
+
+    private String name; //Name of the symbol
+    private int kind; //Keeps track of what it is
+    private String stringValue; //Value of what the symbol is
+    private int intValue; 
+    private double doubleValue;
+
+    /*
+     * For kind the numbers indicate as follows
+     * 0 = String
+     * 1 = double
+     * 2 = int
+     /
+    public Symbol(String name, int kind, String value) {
+        this.name = name;
+        this.kind = kind;
+        stringValue = value;
+    }
+
+    public Symbol(String name, int kind, double value) {
+        this.name = name;
+        this.kind = kind;
+        doubleValue = value;
+    }
+
+    public Symbol(String name, int kind, int value) {
+        this.name = name;
+        this.kind = kind;
+        intValue = value;
+    }
+
+    /
+     * GETTERS
+     /
+    public String getName() {
+        return name;
+    }
+
+    public int getKind() {
+        return kind;
+    }
+
+    public String getStringValue() {
+        return stringValue;
+    }
+
+    public double getDoubleValue() {
+        return doubleValue;
+    }
+
+    public int getIntValue() {
+        return intValue;
+    }
+
+    /
+     * SETTERS
+     */
+    public void setKind(int kind) {
+        this.kind=kind;
+    }
+
+    public void setStringValue(String value) {
+        stringValue = value;
+    }
+
+    public void setIntValue(int value) {
+        intValue = value;
+    }
+
+    public void setDoubleValue(double value) {
+        doubleValue = value;
+    }
+
+    @Override
+    public String toString() {
+        switch(kind) {
+        case 0:
+            return name + "\t" + kind + "\t" + stringValue;
+        case 1:
+            return name + "\t" + kind + "\t" + doubleValue;
+        case 3:
+            return name + "\t" + kind + "\t" + intValue;
+        default:
+            return null;
+        }
+
+    }
+}
