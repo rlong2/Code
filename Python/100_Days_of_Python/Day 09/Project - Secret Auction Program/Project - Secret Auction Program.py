@@ -2,7 +2,7 @@ from replit import clear # HINT: You can call clear() to clear the output in the
 import art
 
 # Print ascii art and intoduction
-#print(art.logo)
+print(art.logo)
 print("Welcome to the secret auction program.")
 
 # Main
