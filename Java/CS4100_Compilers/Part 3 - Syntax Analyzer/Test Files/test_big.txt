@@ -1,0 +1,13 @@
+UNIT myProg;            	 (* Program *)
+			
+				 (*Block*)
+LABEL lab1, lab2, lab3; 	 (* optional label-declaration*)
+VAR foo, bar, zar: Integer;      (* optional variable dec sec*)
+
+BEGIN				 (*Block-body*)
+				 (* Statements *)
+a := "apple";
+b := "banana";
+
+END			(* End Program *)
+.

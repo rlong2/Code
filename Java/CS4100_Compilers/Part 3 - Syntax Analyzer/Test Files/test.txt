@@ -1,0 +1,21 @@
+unit LastTest;
+
+VAR I,J: integer;
+var product, sum: integer;
+
+begin
+
+{ Find 6 factorial }
+  product := 1;
+  i := 2;
+  while i <= 6 do
+    begin
+    product := product * i;
+    writeln("Product now is:");
+    writeln(product);
+    i := i + 1
+    end;
+  writeln("6! is:");
+  writeln(product)
+
+end.
