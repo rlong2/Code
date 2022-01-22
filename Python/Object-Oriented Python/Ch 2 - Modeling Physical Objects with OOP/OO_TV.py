@@ -57,11 +57,10 @@ class TV():
         else:
             pass
 
-# TODO: Fix new channel setting
     def setChannel(self, newChannel):
         # If the requested channel is available, change the channel
         if newChannel in self.channelList:
-            self.channelIndex - self.channelList.index(newChannel)
+            self.channelIndex = self.channelList.index(newChannel)
 
     # Display info
     def status(self):
