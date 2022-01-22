@@ -42,8 +42,14 @@ oDimmer1.raiseBrightness()
 # Check status
 oDimmer1.status()
 
-# Create a new light and check status
+# Create more switches and check status
 oDimmer2 = DimmerSwitch("Dimmer2")
-print("Checking new switch status:")
+oDimmer2.turnOn()
 oDimmer2.status()
+
+oDimmer3 = DimmerSwitch("Dimmer3")
+oDimmer3.turnOn()
+oDimmer3.raiseBrightness()
+oDimmer3.raiseBrightness()
+oDimmer3.status()
     
