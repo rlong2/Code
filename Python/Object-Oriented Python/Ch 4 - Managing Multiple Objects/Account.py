@@ -28,6 +28,7 @@ class Account():
                 print("You cannot withdraw more than you have in your account")
                 return None
             else:
+                self.balance = self.balance - amountToWithdraw
                 return self.balance
         else:
             print("Sorry, incorrect password!")
