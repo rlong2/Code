@@ -1,10 +1,10 @@
 # A bank account class. It can deposit, withdraw, and check status.
 
 class Account():
-    def __init__(self, name, password, balance):
+    def __init__(self, name, balance, password):
         self.name = name
-        self.password = password
         self.balance = int(balance)
+        self.password = password
 
     def deposit(self, amountToDeposit, password):
         if password == self.password:
@@ -21,7 +21,14 @@ class Account():
 
     def withdraw(self, amountToWithdraw, password):
         if password == self.password:
-            pass
+            if amountToWithdraw < 0:
+                print("You cannot withdraw a negative amount")
+                return None
+            elif amountToWithdraw > self.balance:
+                print("You cannot withdraw more than you have in your account")
+                return None
+            else:
+                return self.balance
         else:
             print("Sorry, incorrect password!")
             return None
@@ -39,5 +46,7 @@ class Account():
         print(f"Balance: {self.balance}")
         print(f"Password: {self.password}")
         print()
-        
+
+# Main
+oAccount = Account("Larry", 1000, "qwerty")
          
