@@ -14,7 +14,7 @@ class Account():
 
             
             self.balance = self.balance + amountToDeposit
-            print(f"After depositing {amountToDeposit}, {self.name}'s account balance is {self.balance}")
+            print(f"After depositing ${amountToDeposit}, {self.name}'s account balance is ${self.balance}")
             return self.balance
         
         else:
@@ -31,7 +31,7 @@ class Account():
                 return None
             else:
                 self.balance = self.balance - amountToWithdraw
-                print(f"After withdrawing {amountToWithdraw}, {self.name}'s account balance is {self.balance}")
+                print(f"After withdrawing ${amountToWithdraw}, {self.name}'s account balance is ${self.balance}")
                 return self.balance
         else:
             print("Sorry, incorrect password!")
@@ -47,6 +47,6 @@ class Account():
     # Debugging
     def show(self):
         print(f"Name: {self.name}")
-        print(f"Balance: {self.balance}")
+        print(f"Balance: ${self.balance}")
         print(f"Password: {self.password}")
         print()
