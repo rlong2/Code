@@ -46,7 +46,3 @@ class Account():
         print(f"Balance: {self.balance}")
         print(f"Password: {self.password}")
         print()
-
-# Main
-oAccount = Account("Larry", 1000, "qwerty")
-         
