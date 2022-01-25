@@ -53,12 +53,10 @@ while True:
         userBalance = int(input("Enter the starting balance for the account: "))
         userPassword = input("Enter the password for the user: ")
         oAccount =  Account(userName, userBalance, userPassword)
-        # Add object to dictionary
         accountsDict[nextAccountNumber] = oAccount
         print(f"Your new account number is: {nextAccountNumber}")
         nextAccountNumber += 1
         print()
-        
         
     elif action == 'w':
         print("Make a Withdrawl")
@@ -72,34 +70,13 @@ while True:
         print("*** Show all Accounts ***")
         for userAccountNumber in accountsDict:
             oAccount = accountsDict[userAccountNumber]
-            print("Account number: {userAccountNumber}")
+            print(f"Account number: {userAccountNumber}")
             oAccount.show()
         
     elif action == 'q':
         print("*** Quitting... ***")
+        break
         
     else:
         print("Invalid input, try again!")
-    
-'''
-print("calling methods on the two accounts...")
-accountsDict[ryansAccountNumber].deposit(50, "ryanpassword")
-accountsDict[larrysAccountNumber].withdraw(20, "larrypassword")
-
-# Create a third account interactively
-userName = input("Enter the username for the account: ")
-userBalance = int(input("Enter the starting balance for the account: "))
-userPassword = input("Enter the password for the user: ")
-
-# Add the new acount to the dictionary
-oAccount = Account(userName, userBalance, userPassword)
-newAccountNumber = nextAccountNumber
-accountsDict[newAccountNumber] = oAccount
-nextAccountNumber += 1
-
-# Add some cash to the new account
-accountsDict[newAccountNumber].deposit(450, userPassword)
-'''
-
-
 
