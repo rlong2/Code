@@ -49,6 +49,12 @@ while True:
         
     elif action == 'o':
         print("*** Open an Account ***")
+        userName = input("Enter a username for the new account: ")
+        userBalance = int(input("Enter the starting balance for the account: "))
+        userPassword = input("Enter the password for the user: ")
+        oAccount =  Account(userName, userBalance, userPassword)
+        # Add object to dictionary
+        
         
     elif action == 'w':
         print("Make a Withdrawl")
