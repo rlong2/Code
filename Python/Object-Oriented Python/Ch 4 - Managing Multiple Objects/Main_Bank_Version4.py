@@ -10,12 +10,12 @@ nextAccountNumber = 0
 oAccount = Account("Ryan", 100, "ryanpassword")
 ryansAccountNumber = nextAccountNumber
 accountsDict[ryansAccountNumber] = oAccount
-
 nextAccountNumber += 1
 
 oAccount = Account("Larry", 320, "larrypassword")
 larrysAccountNumber = nextAccountNumber
 accountsDict[larrysAccountNumber] = oAccount
+nextAccountNumber += 1
 
 while True:
     print()
@@ -54,6 +54,10 @@ while True:
         userPassword = input("Enter the password for the user: ")
         oAccount =  Account(userName, userBalance, userPassword)
         # Add object to dictionary
+        accountsDict[nextAccountNumber] = oAccount
+        print(f"Your new account number is: {nextAccountNumber}")
+        nextAccountNumber += 1
+        print()
         
         
     elif action == 'w':
@@ -66,6 +70,10 @@ while True:
         
     elif action == 's':
         print("*** Show all Accounts ***")
+        for userAccountNumber in accountsDict:
+            oAccount = accountsDict[userAccountNumber]
+            print("Account number: {userAccountNumber}")
+            oAccount.show()
         
     elif action == 'q':
         print("*** Quitting... ***")
