@@ -12,7 +12,6 @@ class Account():
                 print("You cannot deposit a negative amount")
                 return None
 
-            
             self.balance = self.balance + amountToDeposit
             print(f"After depositing ${amountToDeposit}, {self.name}'s account balance is ${self.balance}")
             return self.balance
