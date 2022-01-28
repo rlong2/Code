@@ -67,3 +67,9 @@ class Bank():
             print(f"Account number: {userAccountNumber}")
             oAccount.show()
 
+    def about(self):
+        hours = "Monday through Friday, 8 AM to 5 PM"
+        location = "Auckland, NZ"
+        print(f"This bank is based in {location}.")
+        print(f"The hours are {hours}.")
+
