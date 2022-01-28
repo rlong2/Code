@@ -6,10 +6,6 @@ from Bank import *
 oBank = Bank()
 
 # Main code
-# Create two test accounts
-larrysAccountNumber = oBank.createAccount("Larry", 1000, "larrypass")
-ryansAccountNumber = oBank.createAccount("Ryan", 20, "ryanpass")
-
 # Loop through menu options
 while True:
     print()
@@ -19,6 +15,7 @@ while True:
     print("Press c to close an existing account")
     print("Press w to make a withdrawl")
     print("Press s to show all accounts")
+    print("Press a to display bank hours and other information")
     print("Press q to quit")
     print()
 
@@ -38,6 +35,8 @@ while True:
         oBank.withdraw()
     elif action == 's':
         oBank.show()
+    elif action == 'a':
+        oBank.about()
     elif action == 'q':
         print("*** Quitting... ***")
         break
