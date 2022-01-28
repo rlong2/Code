@@ -49,7 +49,7 @@ class Bank():
         userAccountNumber = int(input("Enter your account number: "))
         userAccountPassword = input("Enter your account password: ")
         amountToDeposit = int(input("Enter the amount to deposit: "))
-        oAccount = accountsDict[userAccountNumber]
+        oAccount = self.accountsDict[userAccountNumber]
         oAccount.deposit(amountToDeposit, userAccountPassword)
 
     def withdraw(self):
@@ -57,13 +57,13 @@ class Bank():
         userAccountNumber = int(input("Enter your account number: "))
         userAccountPassword = input("Enter your account password: ")
         amountToWithdraw = int(input("Enter the amount to withdraw: "))
-        oAccount = accountsDict[userAccountNumber]
+        oAccount = self.accountsDict[userAccountNumber]
         oAccount.withdraw(amountToWithdraw, userAccountPassword)
 
     def show(self):
         print("*** Show all Accounts ***")
-        for userAccountNumber in accountsDict:
-            oAccount = accountsDict[userAccountNumber]
+        for userAccountNumber in self.accountsDict:
+            oAccount = self.accountsDict[userAccountNumber]
             print(f"Account number: {userAccountNumber}")
             oAccount.show()
 
