@@ -7,25 +7,63 @@ class Bank():
         self.accountsDict = {}
         self.nextAccountNumber = 0
 
-    
     def createAccount(self, name, startingAmount, password):
-        pass
+        oAccount = Account(name, startingAmount, password)
+        newAccountNumber = self.nextAccountNumber
+        self.accountsDict[newAccountNumber] = oAccount
+        # Increment to prepare for next account to be created
+        self.nextAccountNumber = self.nextAccountNumber + 1
+        return newAccountNumber
 
     def openAccount(self):
-        pass
+        print("*** Open an Account ***")
+        userName = input("Enter a username for the new account: ")
+        userBalance = int(input("Enter the starting balance for the account: "))
+        userPassword = input("Enter a password for the user: ")
+        oAccount =  Account(userName, userBalance, userPassword)
+        accountsDict[nextAccountNumber] = oAccount
+        print(f"Your new account number is: {nextAccountNumber}")
+        nextAccountNumber += 1
+        print()
 
     def closeAccount(self):
-        pass
+        print("*** Close Account ***")
+        userAccountNumber = int(input("What is your account number?: "))
+        userPassword = input("What is your password?: ")
+        oAccount = self.accountsDict[userAccountNumber]
+        balance = oAccount.getBalance(userPassword)
+        print(f"You had ${balance} in your account, which is being returned to you.")
+        del self.accountsDict[userAccountNumber]
+        print("Your account is now closed.")
 
     def balance(self):
-        pass
+        print("*** Get Balance ***")
+        userAccountNumber = int(input("Enter your account number: "))
+        userAccountPassword = input("Enter your account password: ")
+        oAccount = accountsDict[userAccountNumber]
+        theBalance = oAccount.getBalance(userAccountPassword)
+        print(f"Your balance is ${theBalance}")
 
     def deposit(self):
-        pass
+        print("*** Make a Deposit ***")
+        userAccountNumber = int(input("Enter your account number: "))
+        userAccountPassword = input("Enter your account password: ")
+        amountToDeposit = int(input("Enter the amount to deposit: "))
+        oAccount = accountsDict[userAccountNumber]
+        oAccount.deposit(amountToDeposit, userAccountPassword)
 
     def withdraw(self):
-        pass
+        print("Make a Withdrawl")
+        userAccountNumber = int(input("Enter your account number: "))
+        userAccountPassword = input("Enter your account password: ")
+        amountToWithdraw = int(input("Enter the amount to withdraw: "))
+        oAccount = accountsDict[userAccountNumber]
+        oAccount.withdraw(amountToWithdraw, userAccountPassword)
 
     def show(self):
-        pass
+        print("*** Show all Accounts ***")
+        for userAccountNumber in accountsDict:
+            oAccount = accountsDict[userAccountNumber]
+            print(f"Account number: {userAccountNumber}")
+            oAccount.show()
 
