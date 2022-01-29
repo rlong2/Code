@@ -20,10 +20,9 @@ class Bank():
         userName = input("Enter a username for the new account: ")
         userBalance = int(input("Enter the starting balance for the account: "))
         userPassword = input("Enter a password for the user: ")
-        oAccount =  Account(userName, userBalance, userPassword)
-        accountsDict[nextAccountNumber] = oAccount
+        # Call createAccount method
+        userAccountNumber = self.createAccount(userName, userBalance, userPassword)
         print(f"Your new account number is: {nextAccountNumber}")
-        nextAccountNumber += 1
         print()
 
     def closeAccount(self):
