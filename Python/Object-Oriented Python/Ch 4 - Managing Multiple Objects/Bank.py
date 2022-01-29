@@ -13,6 +13,7 @@ class Bank():
         self.accountsDict[newAccountNumber] = oAccount
         # Increment to prepare for next account to be created
         self.nextAccountNumber = self.nextAccountNumber + 1
+        print(f"Your new account number is {newAccountNumber}")
         return newAccountNumber
 
     def openAccount(self):
@@ -39,7 +40,7 @@ class Bank():
         print("*** Get Balance ***")
         userAccountNumber = int(input("Enter your account number: "))
         userAccountPassword = input("Enter your account password: ")
-        oAccount = accountsDict[userAccountNumber]
+        oAccount = self.accountsDict[userAccountNumber]
         theBalance = oAccount.getBalance(userAccountPassword)
         print(f"Your balance is ${theBalance}")
 
