@@ -6,6 +6,21 @@ class Bank():
     def __init__(self):
         self.accountsDict = {}
         self.nextAccountNumber = 0
+        self.hours = "Monday through Friday, 8 AM to 5 PM"
+        self.location = "Auckland, NZ"
+        self.phone = "(123)-456-7890"
+        
+    def askForValidAccountNumber(self):
+        accountNumber = input("What is your account number?: ")
+        try:
+            accountNumber = int(accountNumber)
+        except ValueError:
+            raise AbortTransaction("The account number must be an integer.")
+
+        if accountNumber not in self.accountsDict:
+            raise AbortTransaction(f"There is no account {accountNumber}")
+
+        return accountNumber
 
     def createAccount(self, name, startingAmount, password):
         oAccount = Account(name, startingAmount, password)
@@ -67,8 +82,7 @@ class Bank():
             oAccount.show()
 
     def about(self):
-        hours = "Monday through Friday, 8 AM to 5 PM"
-        location = "Auckland, NZ"
-        print(f"This bank is based in {location}.")
-        print(f"The hours are {hours}.")
+        print(f"This bank is based in {self.location}.")
+        print(f"The hours are {self.hours}.")
+        print(f"The phone number is {self.phone}.")
 
