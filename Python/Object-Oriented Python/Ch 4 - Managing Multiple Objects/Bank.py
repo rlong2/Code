@@ -22,6 +22,12 @@ class Bank():
 
         return accountNumber
 
+    def getUsersAccount(self):
+        accountNumber = self.askForValidAccountNumber()
+        oAccount = self.accountsDict[accountNumber]
+        self.askForValidPassword(oAccount)
+        return oAccount
+    
     def createAccount(self, name, startingAmount, password):
         oAccount = Account(name, startingAmount, password)
         newAccountNumber = self.nextAccountNumber
@@ -60,19 +66,20 @@ class Bank():
 
     def deposit(self):
         print("*** Make a Deposit ***")
-        userAccountNumber = int(input("Enter your account number: "))
-        userAccountPassword = input("Enter your account password: ")
-        amountToDeposit = int(input("Enter the amount to deposit: "))
-        oAccount = self.accountsDict[userAccountNumber]
-        oAccount.deposit(amountToDeposit, userAccountPassword)
+        oAccount = self.getUsersAccount()
+        depositAmmount = input("Enter the amount to deposit: ")
+        balance = oAccount.deposit(depositAmount)
+        print(f"Deposited: {depositAmount}")
+        print(f"Your new balance is {balance}")
 
     def withdraw(self):
         print("Make a Withdrawl")
-        userAccountNumber = int(input("Enter your account number: "))
-        userAccountPassword = input("Enter your account password: ")
-        amountToWithdraw = int(input("Enter the amount to withdraw: "))
-        oAccount = self.accountsDict[userAccountNumber]
-        oAccount.withdraw(amountToWithdraw, userAccountPassword)
+        oAccount = self.getUsersAccount()
+        amount = input("Enter the amount to withdraw: ")
+        balance = oAccount.withdraw(amount)
+        print(f"Withdrew: {amount}")
+        print(f"Your new balance is {balance}")
+        
 
     def show(self):
         print("*** Show all Accounts ***")
