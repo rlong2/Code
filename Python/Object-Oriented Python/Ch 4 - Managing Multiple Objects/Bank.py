@@ -3,12 +3,12 @@
 from Account import *
 
 class Bank():
-    def __init__(self):
+    def __init__(self, hours, address, phone):
         self.accountsDict = {}
         self.nextAccountNumber = 0
-        self.hours = "Monday through Friday, 8 AM to 5 PM"
-        self.location = "Auckland, NZ"
-        self.phone = "(123)-456-7890"
+        self.hours = hours
+        self.address = address
+        self.phone = phone
         
     def askForValidAccountNumber(self):
         accountNumber = input("What is your account number?: ")
@@ -89,7 +89,7 @@ class Bank():
             oAccount.show()
 
     def about(self):
-        print(f"This bank is based in {self.location}.")
+        print(f"This bank is located at {self.address}.")
         print(f"The hours are {self.hours}.")
         print(f"The phone number is {self.phone}.")
 
