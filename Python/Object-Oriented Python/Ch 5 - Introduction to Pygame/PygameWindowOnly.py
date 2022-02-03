@@ -7,6 +7,7 @@ import sys
 
 # Define constants
 BLACK = (0, 0, 0)
+TEAL = (0, 128, 128)
 WINDOW_WIDTH = 640
 WINDOW_HEIGHT = 480
 FPS = 30
@@ -31,7 +32,7 @@ while True:
         # Do any FPS actions
 
         # Clear the window
-        window.fill(BLACK)
+        window.fill(TEAL)
 
         # Draw all window elements
 
